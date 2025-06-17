@@ -38,3 +38,4 @@ Route::resource('suppliers', SupplierController::class);
     // Route::get('/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
     // Route::put('/{id}', [BrandController::class, 'update'])->name('brands.update');
     // Route::delete('/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
+// Route::get('/{id}', [BrandController::class, 'show'])->name('brands.show');
