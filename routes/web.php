@@ -4,7 +4,26 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+
+
+
+// This function checks if the current route matches the given route(s) and returns 'active' if it does, or an empty string otherwise.
+if (!function_exists('set_active')) {
+    function set_active($routes, $active = 'active')
+    {
+        $currentRoute = Route::currentRouteName();
+
+        if (is_array($routes)) {
+            return in_array($currentRoute, $routes) ? $active : '';
+        }
+
+        return $currentRoute === $routes ? $active : '';
+    }
+}
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,11 +42,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-
-
 Route::resource('brands', BrandController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('suppliers', SupplierController::class);
+Route::resource('customers', CustomerController::class);
+Route::resource('products', ProductController::class);
 
 
 // or

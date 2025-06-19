@@ -69,7 +69,7 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-       
+
         $request->validate([
             'brand_name' => 'required|string',
             'description' => 'nullable|string|max:255',
@@ -88,6 +88,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
+        dd($brand);
         $brand->delete(); //it will delete the record from the database
         return redirect()->route('brands.index')->with('success', 'Brand deleted successfully.');
     }
