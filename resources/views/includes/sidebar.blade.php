@@ -61,10 +61,21 @@
                             class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{{ route('products.create') }}" class="{{set_active('products.create')}}">Product Add</a></li>
+                        <li><a href="{{ route('products.index') }}" class="{{set_active('products.index')}}">Product List</a></li>
 
                     </ul>
                 </li>
 
+                {{-- product --}}
+                <li class="submenu {{ set_active(['purchases.create']) }}">
+                    <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Purchases</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('purchases.create') }}" class="{{set_active('purchases.create')}}">Purchase Add</a></li>
+                        <li><a href="{{ route('purchases.index') }}" class="{{set_active('purchases.index')}}">Purchase List</a></li>
+
+                    </ul>
+                </li>
 
             </ul>
         </div>
